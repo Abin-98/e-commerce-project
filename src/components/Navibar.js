@@ -11,8 +11,8 @@ const Navibar = (props) => {
         </Nav>
         <Nav></Nav>
       </Navbar>
-        <Button variant="outline-light" className="cart">
-          Cart <span className="cart-btn"> 0 </span>
+        <Button onClick={props.onShow} variant="outline-light" className="cart-btn">
+          Cart <span className="cart-number"> 0 </span>
         </Button>
     </>
   );

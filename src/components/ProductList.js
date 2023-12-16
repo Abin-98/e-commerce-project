@@ -37,14 +37,14 @@ const ProductList = (props) => {
         <h2>Music</h2>
       </div>
       <div className="list">
-        <Container>
-          <Row className="g-5">
+        <Container >
+          <Row >
             {productsArr.map((prod) => {
               return (
-                <Col xs={6} key={prod.id}>
+                <Col className="column" xs={12} md={6} key={prod.id}>
                   <div className="item">
-                    <h3 className="itemtitle">{prod.title}</h3>
-                    <Image src={prod.imageUrl} rounded />
+                    <h4 className="itemtitle">{prod.title}</h4>
+                    <Image className="list-img" src={prod.imageUrl} rounded />
                     <div className="list-footer">
                       <span>${prod.price}</span>
                       <Button variant="primary">Add to Cart</Button>
