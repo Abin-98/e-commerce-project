@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+.headertext{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25vh;
+    background-color: grey;
+    color: white;
+    font-size: 7rem;
+}
+.cart{
+    position: absolute;
+    top:9px;
+    right: 2rem;
+}
+.cart-btn{
+    padding: 0.2rem 0.6rem;
+    background-color: brown;
+    color:white;
+    border-radius: 5px;
+}
+.list-footer{
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+.item h3{
+    padding: 1rem 0;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.list .item{
+    display: flex;
+    flex-direction: column;
+}
+.section{
+    padding: 1rem;
+}
+.list{
+    padding-top: 2rem;
+    width: 60rem;
+    margin: 0 auto;
+}
+.subtitle{
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.contains{
+    padding: 0 30rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.musictitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7rem;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 600;
 }
