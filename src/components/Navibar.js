@@ -1,18 +1,22 @@
-import React from "react";
+import React , {useContext} from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
+import CartContext from "../store/cart-context";
 const Navibar = (props) => {
+  const cartCtx=useContext(CartContext);
+  const numberOfItems=cartCtx.items.reduce((val,item)=>{
+    return val+Number(item.quantity);
+  },0)
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark" className="justify-content-center">
         <Nav>
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#store">Store</Nav.Link>
-          <Nav.Link href="#about">About</Nav.Link>
+          <Nav.Link style={{padding:'0.5rem 4rem'}} href="#home">Home</Nav.Link>
+          <Nav.Link style={{padding:'0.5rem 4rem'}} href="#store">Store</Nav.Link>
+          <Nav.Link style={{padding:'0.5rem 4rem'}} href="#about">About</Nav.Link>
         </Nav>
-        <Nav></Nav>
       </Navbar>
         <Button onClick={props.onShow} variant="outline-light" className="cart-btn">
-          Cart <span className="cart-number"> 0 </span>
+          Cart <span className="cart-number"> {numberOfItems} </span>
         </Button>
     </>
   );

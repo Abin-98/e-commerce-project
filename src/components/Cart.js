@@ -1,31 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Button, Container, Row, Col,Image } from "react-bootstrap";
+import CartContext from "../store/cart-context";
 
 const Cart = (props) => {
-    const total=0;
-  const cartElements = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-      quantity: 3,
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-  ];
+  const cartCtx=useContext(CartContext);
+  cartCtx.totalAmount = cartCtx.items.reduce((val, item) => {
+    return val + Number(item.price) * Number(item.quantity);
+  }, 0);
   return (
     <div className="cart">
       <h3>Cart</h3>
@@ -38,14 +19,14 @@ const Cart = (props) => {
       </Button>
         <Container>
           <Row className="g-4">
-            <Col sm={5} style={{textAlign:"center"}}><h4>Item</h4></Col>
-            <Col style={{textAlign:"center"}}><h4>Price</h4></Col>
-            <Col sm={5} style={{textAlign:"center"}}><h4>Quantity</h4></Col>
+            <Col sm={5} style={{textAlign:"center"}}>Item</Col>
+            <Col style={{textAlign:"center"}}>Price</Col>
+            <Col sm={5} style={{textAlign:"center"}}>Quantity</Col>
             <hr></hr>
           </Row>
           
-            {cartElements.map((element) => {
-              return <Row className="mb-3">
+            {cartCtx.items.map((element) => {
+              return <Row className="mb-3" key={element.id}>
                 <Col sm={5} className="item-title-col">
                 <Image style={{width:100, height:100}} src={element.imageUrl} thumbnail />
                 <span style={{marginLeft:20}}>{element.title}</span>
@@ -55,13 +36,13 @@ const Cart = (props) => {
                 </Col>
                 <Col sm={5}>
                 <span className="item-quantity">{element.quantity}</span>
-                <Button style={{marginLeft:20}} variant="danger">Remove</Button>
+                <Button style={{marginLeft:20}} variant="danger" onClick={()=>cartCtx.removeItem(element.id)}>Remove</Button>
                 </Col>
                 </Row>
             })}
           
         </Container>
-        <section >{`Total : $${total}`}</section>
+        <section >{`Total : $${cartCtx.totalAmount}`}</section>
       <span className="purchase-btn">
         <Button variant="primary">Purchase</Button>
       </span>

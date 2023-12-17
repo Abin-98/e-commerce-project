@@ -1,6 +1,9 @@
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import React, { useContext } from "react";
+import CartContext from "../store/cart-context";
 
 const ProductList = (props) => {
+  const cartCtx = useContext(CartContext);
   const productsArr = [
     {
       id: 1,
@@ -31,14 +34,20 @@ const ProductList = (props) => {
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
     },
   ];
+
+  const addtoCart = (e) => {
+    const index = productsArr.findIndex((item) => item.id === Number(e.target.id));
+    cartCtx.addItem({...productsArr[index],quantity:1});
+  };
+
   return (
     <section className="section">
       <div className="musictitle">
         <h2>Music</h2>
       </div>
       <div className="list">
-        <Container >
-          <Row >
+        <Container>
+          <Row>
             {productsArr.map((prod) => {
               return (
                 <Col className="column" xs={12} md={6} key={prod.id}>
@@ -47,7 +56,13 @@ const ProductList = (props) => {
                     <Image className="list-img" src={prod.imageUrl} rounded />
                     <div className="list-footer">
                       <span>${prod.price}</span>
-                      <Button variant="primary">Add to Cart</Button>
+                      <Button
+                        variant="primary"
+                        id={prod.id}
+                        onClick={addtoCart}
+                      >
+                        Add to Cart
+                      </Button>
                     </div>
                   </div>
                 </Col>
