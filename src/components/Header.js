@@ -1,10 +1,11 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Container fluid  className='headertext'>
-      <div >The Generics</div>
+      <span >The Generics</span>
+      {props.extra}
     </Container>
   )
 }
