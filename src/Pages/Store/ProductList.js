@@ -1,6 +1,6 @@
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import React, { useContext } from "react";
-import CartContext from "../../../Context/cart-context";
+import CartContext from '../../Context/cart-context';
 
 const ProductList = (props) => {
   const cartCtx = useContext(CartContext);

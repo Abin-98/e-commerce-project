@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../Header";
+import Header from "../../components/Header";
 import classes from "./HomePage.module.css";
 import { Button, Container, Table, Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

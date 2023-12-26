@@ -1,7 +1,8 @@
 import React from "react";
-import Header from "../../Header";
-import { Container, Row, Col,Image } from "react-bootstrap";
+import Header from "../../components/Header";
+import { Container, Row, Col } from "react-bootstrap";
 import classes from './About.module.css'
+import img1 from '../../assets/musicband.jpg'
 
 const About = () => {
   return (
@@ -11,7 +12,7 @@ const About = () => {
       <h2 className={classes.title}>About</h2>
         <Row>
           <Col className={classes.colm} sm={9}>
-            <Image className={classes.img} src="../../../assets/Leo.jpg" roundedCircle/>
+            <img src={img1} className={classes.img} alt="imgg"></img>
             <p>
               Lorem ipsum carrots enhanced rebates. Excellent sayings of a man
               of sorrows, hates no prosecutors will unfold in the enduring of
@@ -27,14 +28,7 @@ const About = () => {
               Those are! Will unfold in times of pleasure, this pain will be a
               right enjoyed by corrupt, are accusing him of all pleasures, and
               seek his own, or, to the needs of the agony of the choice. We hate
-              the fellow. Lorem ipsum dolor, sit amet consectetur rebates. The
-              distinction, that arise from or to. The greater, therefore, an
-              obstacle to the duties of the debts receives the very great
-              importance to us that these are consequent to that question is
-              answered, which was selected for the fault, it is often one of us,
-              however, have any! Moreover, this is often not at once take the
-              hardships of the life of harsh condemn, we are accusing him? Him
-              whom something large cisterns.
+              the fellow. 
             </p>
           </Col>
         </Row>

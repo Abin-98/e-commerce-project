@@ -1,0 +1,14 @@
+.img {
+  float: left;
+  width: 250px;
+  height: 250px;
+  margin-right: 1rem;
+}
+.colm {
+  margin: 1rem auto;
+  width: 60rem;
+}
+.title {
+  padding: 1rem;
+  text-align: center;
+}

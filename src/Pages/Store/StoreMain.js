@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ContextProvider from '../../../Context/ContextProvider';
-import Header from '../../Header';
+import ContextProvider from '../../Context/ContextProvider';
+import Header from '../../components/Header';
 import Cart from './Cart';
 import ProductList from './ProductList';
 import CartButton from './CartButton';
