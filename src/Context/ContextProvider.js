@@ -3,7 +3,11 @@ import CartContext from "./cart-context";
 
 const ContextProvider = (props) => {
   const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
 
+  const addActualItems=(array)=>{
+    setProducts([...array]);
+  }
 
   const addToCart = (addedItem) => {
     const index = items.findIndex((item) => item.id === addedItem.id);
@@ -19,12 +23,15 @@ const ContextProvider = (props) => {
   const removeFromCart = (ID) => {
     const index = items.findIndex((item) => item.id === ID);
     setItems((prev) => {
-      const dupItems = prev.splice(index, 1);
+      const dupItems = [...prev];
+      dupItems.splice(index,1);
       return dupItems;
     });
   };
 
   const cartContext = {
+    actualItems: products,
+    addProducts:addActualItems,
     items: items,
     totalAmount: 0,
     addItem: addToCart,
